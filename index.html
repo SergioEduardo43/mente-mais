@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Mente+: aprenda sobre emoções, saúde mental e autocuidado.">
+  <title>Mente+ | Cuide da sua mente</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="#inicio" data-page="inicio">
+      <span class="logo-icone">✦</span> Mente<span>+</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav class="menu" id="menu">
+      <button class="nav-link ativo" data-page="inicio">Início</button>
+      <button class="nav-link" data-page="quiz">Minhas emoções</button>
+      <button class="nav-link" data-page="aprender">Aprender</button>
+      <button class="nav-link" data-page="ajuda">Ajuda</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section class="pagina ativa" id="inicio" data-screen>
+      <div class="hero">
+        <div class="hero-texto">
+          <span class="etiqueta">SEU ESPAÇO DE ACOLHIMENTO</span>
+          <h1>Entender o que você sente é o primeiro passo.</h1>
+          <p>
+            Um espaço para conhecer suas emoções, aprender sobre saúde
+            mental e descobrir pequenas formas de cuidar de você.
+          </p>
+          <div class="acoes">
+            <button class="btn btn-principal" data-page="quiz">
+              Como estou me sentindo? <span>→</span>
+            </button>
+            <button class="btn btn-secundario" data-page="aprender">
+              Quero aprender
+            </button>
+          </div>
+          <p class="nota">Sem julgamentos. Um passo de cada vez. 🌱</p>
+        </div>
+
+        <div class="hero-arte" aria-hidden="true">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="arte-card">
+            <div class="rosto">☺</div>
+            <span>Está tudo bem fazer uma pausa.</span>
+            <div class="arte-linha"></div>
+            <div class="arte-linha curta"></div>
+          </div>
+          <span class="flutuante estrela">✦</span>
+          <span class="flutuante coracao">♡</span>
+          <span class="flutuante ponto">✧</span>
+        </div>
+      </div>
+
+      <div class="secao-cabecalho">
+        <span class="etiqueta">POR ONDE COMEÇAR?</span>
+        <h2>Escolha o que você precisa hoje.</h2>
+        <p>Você pode explorar no seu ritmo.</p>
+      </div>
+
+      <div class="cartoes-inicio">
+        <article class="cartao escolha-card">
+          <div class="cartao-icone roxo">☁</div>
+          <h3>Entenda suas emoções</h3>
+          <p>Faça uma reflexão rápida sobre como você está se sentindo.</p>
+          <button class="link-botao" data-page="quiz">Começar reflexão →</button>
+        </article>
+
+        <article class="cartao escolha-card">
+          <div class="cartao-icone verde">✿</div>
+          <h3>Aprenda algo novo</h3>
+          <p>Descubra informações sobre ansiedade, estresse, sono e mais.</p>
+          <button class="link-botao" data-page="aprender">Explorar conteúdos →</button>
+        </article>
+
+        <article class="cartao escolha-card">
+          <div class="cartao-icone azul">♡</div>
+          <h3>Faça uma pausa</h3>
+          <p>Experimente um exercício simples de respiração e relaxamento.</p>
+          <button class="link-botao" data-page="ajuda">Ir para o autocuidado →</button>
+        </article>
+      </div>
+
+      <div class="frase">
+        <span>✦</span>
+        <p>Você não precisa resolver tudo de uma vez. Pequenos passos também contam.</p>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="pagina" id="quiz" data-screen>
+      <div class="pagina-cabecalho">
+        <span class="etiqueta">MINHAS EMOÇÕES</span>
+        <h1>Como você está se sentindo?</h1>
+        <p>Reserve um momento para perceber como foram seus últimos dias.</p>
+      </div>
+
+      <div class="painel quiz-painel">
+        <div class="quiz-topo">
+          <span id="quizContador">Pergunta 1 de 8</span>
+          <span id="quizPercentual">13%</span>
+        </div>
+        <div class="barra-progresso">
+          <div id="quizBarra"></div>
+        </div>
+
+        <div id="quizConteudo">
+          <h2 id="perguntaTexto">Como você tem se sentido ultimamente?</h2>
+          <p class="subtexto">Não existem respostas certas ou erradas.</p>
+          <div class="opcoes" id="opcoesQuiz"></div>
+        </div>
+
+        <div id="quizResultado" class="resultado escondido" aria-live="polite">
+          <div class="resultado-icone">🌱</div>
+          <h2 id="resultadoTitulo">Obrigado por refletir sobre você.</h2>
+          <p id="resultadoTexto"></p>
+          <p class="aviso">
+            Esta atividade é apenas uma reflexão educativa, não é um teste
+            clínico e não fornece diagnóstico.
+          </p>
+          <button class="btn btn-principal" id="refazerQuiz">Refazer reflexão ↻</button>
+          <button class="btn btn-secundario" data-page="ajuda">Explorar autocuidado</button>
+        </div>
+
+        <div class="quiz-acoes" id="quizAcoes">
+          <button class="btn btn-secundario" id="quizVoltar" disabled>← Voltar</button>
+          <button class="btn btn-principal" id="quizProximo" disabled>Próxima →</button>
+        </div>
+      </div>
+      <p class="centralizado texto-suave">Responda pensando em como você tem se sentido recentemente.</p>
+    </section>
+
+    <!-- APRENDER -->
+    <section class="pagina" id="aprender" data-screen>
+      <div class="pagina-cabecalho">
+        <span class="etiqueta">APRENDER</span>
+        <h1>Conhecer também é cuidar.</h1>
+        <p>Explore os cartões. Clique para virar e descobrir o outro lado.</p>
+      </div>
+
+      <div class="filtro-categorias">
+        <span class="ponto-status"></span>
+        <span id="flashcardContador">Cartão 1 de 8</span>
+        <span class="dica-clique">Clique no cartão para virar ↻</span>
+      </div>
+
+      <div class="flashcard-area">
+        <button class="seta-card" id="cardAnterior" aria-label="Cartão anterior">←</button>
+        <button class="flashcard" id="flashcard" aria-label="Virar cartão">
+          <span class="flashcard-interno" id="flashcardInterno">
+            <span class="face-card frente">
+              <span class="card-numero" id="cardNumero">01 / 08</span>
+              <span class="card-simbolo" id="cardSimbolo">☁</span>
+              <span class="card-titulo" id="cardTitulo">Ansiedade</span>
+              <span class="card-ajuda">Toque para descobrir <span>↻</span></span>
+            </span>
+            <span class="face-card verso">
+              <span class="etiqueta">ENTENDA MELHOR</span>
+              <span class="verso-texto" id="cardVerso"></span>
+              <span class="card-ajuda">Toque para voltar ↻</span>
+            </span>
+          </span>
+        </button>
+        <button class="seta-card" id="cardProximo" aria-label="Próximo cartão">→</button>
+      </div>
+
+      <div class="bolinhas" id="cardBolinhas" aria-label="Progresso dos cartões"></div>
+      <div class="centralizado">
+        <button class="btn btn-principal" id="proximoFlashcard">Próximo cartão →</button>
+      </div>
+
+      <div class="secao-cabecalho conteudos-titulo">
+        <span class="etiqueta">PEQUENOS LEMBRETES</span>
+        <h2>Cuidados que podem ajudar</h2>
+      </div>
+
+      <div class="cartoes-inicio">
+        <article class="cartao">
+          <div class="cartao-icone roxo">☾</div>
+          <h3>Cuide do sono</h3>
+          <p>Uma rotina tranquila antes de dormir pode ajudar no descanso.</p>
+        </article>
+        <article class="cartao">
+          <div class="cartao-icone verde">🌿</div>
+          <h3>Faça pausas</h3>
+          <p>Dividir tarefas em partes menores pode torná-las mais manejáveis.</p>
+        </article>
+        <article class="cartao">
+          <div class="cartao-icone azul">♡</div>
+          <h3>Converse com alguém</h3>
+          <p>Compartilhar o que sente com alguém de confiança pode ajudar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AJUDA -->
+    <section class="pagina" id="ajuda" data-screen>
+      <div class="pagina-cabecalho">
+        <span class="etiqueta">AUTOCUIDADO</span>
+        <h1>Vamos fazer uma pausa?</h1>
+        <p>Escolha uma atividade simples. Faça tudo no seu próprio ritmo.</p>
+      </div>
+
+      <div class="ajuda-grade">
+        <article class="painel respiracao-painel">
+          <span class="etiqueta">01 · RESPIRAÇÃO</span>
+          <h2>Respire com calma</h2>
+          <p>Siga o círculo sem forçar a respiração. Se ficar desconfortável,
+            volte a respirar normalmente.</p>
+
+          <div class="respiracao-visual">
+            <div class="respiracao-circulo" id="respiracaoCirculo">
+              <span id="respiracaoTexto">Pronto?</span>
+            </div>
+          </div>
+          <p class="respiracao-instrucao" id="respiracaoInstrucao" aria-live="polite">
+            Encontre uma posição confortável.
+          </p>
+          <button class="btn btn-principal largura-total" id="respiracaoBotao">
+            Começar exercício
+          </button>
+        </article>
+
+        <article class="painel alongamento-painel">
+          <span class="etiqueta">02 · MOVIMENTO SUAVE</span>
+          <h2>Alongue-se com cuidado</h2>
+          <p>Movimentos leves para fazer uma pausa. Não force nenhuma posição.</p>
+
+          <div class="alongamento-ilustracao" id="alongamentoIlustracao">🙆</div>
+          <span class="alongamento-passo" id="alongamentoPasso">Exercício 1 de 3</span>
+          <h3 id="alongamentoTitulo">Solte os ombros</h3>
+          <p id="alongamentoDescricao">
+            Eleve os ombros suavemente e depois relaxe. Repita algumas vezes.
+          </p>
+          <div class="duas-acoes">
+            <button class="btn btn-secundario" id="alongamentoAnterior">← Anterior</button>
+            <button class="btn btn-principal" id="alongamentoProximo">Próximo →</button>
+          </div>
+          <p class="texto-suave pequeno">Pare se sentir dor, tontura ou desconforto.</p>
+        </article>
+      </div>
+
+      <div class="mensagem-apoio">
+        <span class="mensagem-icone">♡</span>
+        <div>
+          <span class="etiqueta">UM LEMBRETE PARA VOCÊ</span>
+          <p id="mensagemApoio" aria-live="polite">
+            Você merece cuidado, inclusive nos dias difíceis.
+          </p>
+        </div>
+        <button id="novaMensagem" class="botao-icone" aria-label="Outra mensagem">↻</button>
+      </div>
+
+      <div class="aviso-ajuda">
+        <div class="cartao-icone roxo">☎</div>
+        <div>
+          <h2>Você não precisa lidar com tudo sozinho.</h2>
+          <p>
+            Se estiver passando por um momento difícil, converse com um adulto
+            de confiança ou procure um profissional de saúde.
+          </p>
+          <p>
+            No Brasil, o CVV oferece apoio emocional gratuito pelo número
+            <strong>188</strong>, 24 horas por dia.
+          </p>
+          <p class="texto-suave pequeno">
+            Em uma emergência ou perigo imediato, procure o serviço de emergência
+            local e peça ajuda a um adulto de confiança.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <a class="logo" href="#inicio" data-page="inicio">Mente<span>+</span></a>
+    <p>Um projeto educativo sobre emoções, informação e autocuidado.</p>
+    <span>Feito com cuidado ♡</span>
+  </footer>
+</body>
+</html>
